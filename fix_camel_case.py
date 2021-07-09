@@ -7,8 +7,7 @@ import csv
 from collections import namedtuple
 
 
-def open_csv_populate_list():
-    """Open a csv and populate a list."""
+def open_csv_and_populate_list():
 
     lst = []
 
@@ -24,10 +23,6 @@ def open_csv_populate_list():
 
 
 def make_lowercase():
-    """
-    Loop through email addresses, format each address in all lowercase and
-    populate a list with each reformatted address.
-    """
 
     lst = []
 
@@ -37,8 +32,7 @@ def make_lowercase():
     return lst
 
 
-def write_lst_to_csv(file_name):
-    """Write list to csv."""
+def write_email_addresses_to_csv(file_name):
 
     with open(file_name, "w") as out_file:
         out_csv = csv.writer(out_file)
@@ -46,9 +40,9 @@ def write_lst_to_csv(file_name):
         for email in lowercase_addresses:
             out_csv.writerow([email])
 
-        print(f'"{file_name}" exported successfully')
+        print(f'\n"{file_name}" exported successfully\n')
 
 
-addresses = open_csv_populate_list()
+addresses = open_csv_and_populate_list()
 lowercase_addresses = make_lowercase()
-write_lst_to_csv("lowercase_addresses.csv")
+write_email_addresses_to_csv("updated_addresses.csv")
